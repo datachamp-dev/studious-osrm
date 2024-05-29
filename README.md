@@ -1,3 +1,6 @@
+
+*This README.md has been generated automatically from `fast_spatial_matching.Rmd`*
+
 # Installation
 
     suppressPackageStartupMessages({
