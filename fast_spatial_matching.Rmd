@@ -1,3 +1,9 @@
+---
+title: "Calcul de distances spatiales"
+author: Marc-Aurèle Rivière
+output: md_document
+---
+
 # Installation
 
 ```{r}
@@ -52,7 +58,7 @@ Les données de cette example incluent deux composantes:
     * Colonnes: `id`, `lng`, `lat`
 
 
-Les données sont incluses dans ce repository. Si vous souhaitez les régénérer vous-même, suivez les étapes ci-dessous:
+Les données ne sont pas incluses dans ce repository. Si vous souhaitez les régénérer vous-même, suivez les étapes ci-dessous:
 
 **Chemins vers les données:**
 
@@ -62,7 +68,7 @@ stations_dir <- here(data_dir, "stations")    # Stations sub-directory
 points_dir <- here(data_dir, "points")        # Points sub-directory
 ```
 
-## [OPTIONNEL] Génération des données
+## Génération des données (optionnel)
 
 ### Stations de bus
 
@@ -90,10 +96,10 @@ arrow::read_csv2_arrow(here(stations_dir, "stations.csv")) |>
 
 ### Habitants
 
-Générons 50 millions de points aléatoires dans les frontières de la France, pour simuler les coordonées de ses habitants. 
+Générons 50 millions de points aléatoires dans les frontières de la France, pour simuler les coordonnées de ses habitants. 
 N.B.: La répartition de ces coordonnées sera certainement peu représentative de la distribution spatiale des habitants en France, mais cela aura peu d'incidence sur cet example théorique.
 
-```{r}
+```{r eval=FALSE}
 source(here("R/helpers.R"))
 
 # ATTENTION: re-générer ces données prends plusieurs heures
@@ -202,8 +208,7 @@ tbl(con, "rides_stations_dist") |>
     collect()
 ```
 
-De nos 50 millions d'habitants, environ 60 milles sont à moins de 500m d'une station de bus.
-
+De nos 50 millions d'habitants, environ 60 milles sont à moins de 500m d'une station de bus. Rappel : Les points ont été générés aléatoirement, donc la distribution spatiale des habitants n'est pas représentative de la réalité.
 
 # Conclusion
 
